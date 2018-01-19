@@ -1,0 +1,5 @@
+.grid {
+  display: grid;
+  grid-gap: var(--grid-gutter-size);
+  grid-template: auto / repeat(auto-fill, minmax(var(--grid-min-item-size), var(--grid-max-item-size, 1fr)));
+}

@@ -1,0 +1,43 @@
+.host {
+  --feature-padding: 1.5rem;
+
+  background: #fff;
+  color: #555;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.075);
+  border-radius: 5px;
+  line-height: 1.45;
+  padding: var(--feature-padding);
+}
+
+.icon {
+  display: block;
+  width: calc(100% + 3rem);
+  margin: calc(var(--feature-padding) * -1) calc(var(--feature-padding) * -1) 0;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.title {
+  font-weight: inherit;
+  font-size: 1.2em;
+  margin: var(--feature-padding) 0 0;
+}
+
+.description {
+  margin: 5px 0 0;
+  color: #999;
+}
+
+/*
+.swankyBulb [data-part=glow] {
+  fill: #ffefff;
+}
+
+.swankyBulb [data-part=bulb] {
+  fill: #e694e8;
+}
+
+.swankyBulb [data-part=thread] {
+  fill: #9ec7c4;
+} */

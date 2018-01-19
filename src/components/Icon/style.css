@@ -1,0 +1,33 @@
+.host {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.host[data-type=home] {
+  background-image: url(../../icons/house.svg);
+}
+
+.host[data-type=features] {
+  background-image: url(../../icons/check-list.svg);
+}
+
+.host[data-type=settings] {
+  background-image: url(../../icons/gear.svg);
+}
+
+.host[data-type=compass] {
+  background-image: url(../../icons/compass.svg);
+}
+
+.host[data-type=health] {
+  background-image: url(../../icons/heart.svg);
+}
+
+.host[data-type=search] {
+  background-image: url(../../icons/magnifier.svg);
+}
+
+.host[data-type=command] {
+  background-image: url(../../icons/mac-cmd.svg);
+}

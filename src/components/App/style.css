@@ -1,0 +1,66 @@
+.root {
+  --app-sidebar-width: 280px;
+
+  display: flex;
+  min-height: 100vh;
+  will-change: transform;
+  transition: transform 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  width: calc(100vw + var(--app-sidebar-width));
+}
+
+.root:not(.isSidebarOpen) {
+  transform: translateX(calc(var(--app-sidebar-width) * -1));
+}
+
+.sidebar {
+  order: -1;
+  flex-shrink: 0;
+  width: var(--app-sidebar-width);
+}
+
+.main {
+  position: relative;
+  flex: 1;
+}
+
+.closer {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  will-change: opacity;
+  transition: opacity 200ms ease-out;
+  outline: none;
+}
+
+.closer[hidden] {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.header {
+  background: #fff;
+  color: #333;
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  padding: 0 10px;
+}
+
+.menuButton {
+  cursor: pointer;
+  background: url(../../icons/menu.svg) no-repeat center / 25px 25px;
+  border: none;
+  padding: 0;
+  width: 55px;
+  outline: none;
+}
+
+.title {
+  grid-column: 2;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-size: 1.4em;
+  padding: 15px 0;
+}

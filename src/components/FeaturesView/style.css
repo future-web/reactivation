@@ -1,0 +1,25 @@
+.host {
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+}
+
+.searchbox {
+  box-sizing: border-box;
+  max-width: 350px;
+  width: 100%;
+}
+
+.features {
+  --grid-min-item-size: 300px;
+  --grid-gutter-size: 20px;
+
+  composes: grid from '../../styles/grid.css';
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.notice {
+  margin-top: 20px;
+}
