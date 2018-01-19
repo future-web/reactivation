@@ -1,0 +1,22 @@
+{
+  "features": [
+    {
+      "id": "89940f67-ab83-41a3-959e-81ce78ea6d9c",
+      "icon": "<baseUrl>/babel.png",
+      "title": "Modern JavaScript",
+      "description": "Yea yea, write todays JavaScript and we'll back compile to your target browsers with the magic of webpack and babel."
+    },
+    {
+      "id": "445b5705-333c-447f-9124-1df93a787858",
+      "icon": "<baseUrl>/css.png",
+      "title": "CSS Modules",
+      "description": "You love you some CSS and we do too, but block element modifier sucks, CSS modules provide encapsulation and amazeballs."
+    },
+    {
+      "id": "0ddb97f7-d12c-463e-af85-e5a9e969b2ff",
+      "icon": "<baseUrl>/linting.png",
+      "title": "Linting",
+      "description": "We all know you never make mistakes but sometimes the keyboard fairies steal your keystrokes and ruin everything, but not with backup buddy linters."
+    }
+  ]
+}
