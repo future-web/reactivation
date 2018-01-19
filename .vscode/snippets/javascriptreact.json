@@ -1,0 +1,85 @@
+{
+  "react-component": {
+    "prefix": "react-component",
+    "body": [
+      "import * as React from \"react\";",
+      "",
+      "import styles from \"./style.css\";",
+      "",
+      "type Props = {",
+      "  children?: React.Node",
+      "};",
+      "",
+      "const ${1:Component} = ({ children }: Props) => (",
+      "  <div className={styles.host}>{children}</div>",
+      ");",
+      "",
+      "${1}.defaultProps = {",
+      "  children: null",
+      "};",
+      "",
+      "export default ${1};",
+      ""
+    ]
+  },
+  "react-container": {
+    "prefix": "react-container",
+    "body": [
+      "import * as React from \"react\";",
+      "import { connect } from \"react-redux\";",
+      "",
+      "import * as ${2}Actions from \"../actions/${1}\";",
+      "import ${3:${1}View} from \"../components/${3}\";",
+      "",
+      "type Props = {",
+      "  ${2}: any[],",
+      "  onRequest${1}: void => void",
+      "};",
+      "",
+      "export class ${1:Things} extends React.Component<Props> {",
+      "  componentDidMount() {",
+      "    this.props.onRequest${1}();",
+      "  }",
+      "",
+      "  render() {",
+      "    return <${3} ${2}={this.props.${2}} />;",
+      "  }",
+      "}",
+      "",
+      "const mapStateToProps = ({ ${2} }) => ({ ${2} });",
+      "",
+      "const mapDispatchToProps = {",
+      "  onRequest${1}: ${2}Actions.request${1}",
+      "};",
+      "",
+      "export default connect(mapStateToProps, mapDispatchToProps)(${1});",
+      ""
+    ]
+  },
+  "react-async-action-constants": {
+    "prefix": "react-async-action-constants",
+    "body": [
+      "export const FETCH_${1:FEATURE}_REQUEST = \"FETCH_${1}_REQUEST\";",
+      "export const FETCH_${1}_FAILURE = \"FETCH_${1}_FAILURE\";",
+      "export const FETCH_${1}_SUCCESS = \"FETCH_${1}_SUCCESS\";",
+      ""
+    ]
+  },
+  "react-reducer": {
+    "prefix": "react-reducer",
+    "body": [
+      "import { ${2} } from \"../constants\";",
+      "",
+      "const INITIAL_STATE = ${1};",
+      "",
+      "export default (state = INITIAL_STATE, action) => {",
+      "  if (action.type === ${2}) {",
+      "    return action.payload;",
+      "  }",
+      "",
+      "  return state;",
+      "};",
+      ""
+    ]
+  }
+}
