@@ -27,6 +27,7 @@ Specifically we already:
 - provide samples of more modern browser features and design patterns
 - focus on providing a reasonable webpack configuration that resides within each project (rather than ejecting an incomprehensible mess with CRA)
 - keep base template as simple as making a copy (vs cli tools and eject/initialize patterns)
+- project level snippets (currently only vscode) that reduce repetition and can be easily customized and extended
 
 ## Debugging
 
