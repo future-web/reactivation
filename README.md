@@ -16,7 +16,8 @@ Why use this over the mighty `create-react-app` (CRA)? you may want to use eithe
 
 Specifically we already:
 
-- enable a the latest js pipeline, css modules and asset optimizers (such as automatic sprites and image optimization)
+- enable a modern web pipeline with css modules
+- out of the box asset optimizers (such as automatic icon sprites and global image optimization)
 - provide a mock rest api to enable easy parallel development of application and backend
 - out of the box we have a react + redux setup with a sample set of actions, reducer, container and components
 - provide samples of more modern browser features and design patterns
