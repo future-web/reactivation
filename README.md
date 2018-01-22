@@ -9,8 +9,8 @@ A baseline for building react + redux web applications, with a simplistic webpac
 ## Getting started
 
 ```sh
-npx degit digital-engineers/reactivation my-swanky-project
-cd my-swanky-project
+npx degit digital-engineers/reactivation my-swanky-app
+cd my-swanky-app
 npm install
 ```
 
