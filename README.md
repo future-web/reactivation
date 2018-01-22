@@ -47,5 +47,5 @@ The mock api resources reside within the `mockapi` directory, the powering techn
 
 ## #yarngate
 
-Q: I thought yarn was cool and if I don't use it I'm not a cool developer? 
+Q: I thought yarn was cool and if I don't use it I'm not a cool developer?<br>
 A: You can substitude yarn appropriately with any commands, but please consider why you use yarn over npm.
