@@ -8,7 +8,7 @@ A baseline for building react + redux web applications, with a simplistic webpac
 
 ## Why
 
-Why use this over the mighty `create-react-app` (CRA)? you may want to use either, but the aim of this baseline is to provide a simplistic, extensible base that has a more specialised purpose than CRA could even provide.
+Why use this over the mighty `create-react-app` (CRA)? you may want to use either, but the aim of this baseline is to provide a simplistic, extensible base that has a more specialized purpose than CRA could ever provide.
 
 Specifically we already:
 
