@@ -6,14 +6,6 @@ A baseline for building react + redux web applications, with a simplistic webpac
 
 - Node.js (8.9.0+)
 
-## Getting started
-
-```sh
-npx degit digital-engineers/reactivation my-swanky-app
-cd my-swanky-app
-npm install
-```
-
 ## Why
 
 Why use this over the mighty `create-react-app` (CRA)? you may want to use either, but the aim of this baseline is to provide a simplistic, extensible base that has a more specialised purpose than CRA could even provide.
@@ -28,6 +20,14 @@ Specifically we already:
 - focus on providing a reasonable webpack configuration that resides within each project (rather than ejecting an incomprehensible mess with CRA)
 - keep base template as simple as making a copy (vs cli tools and eject/initialize patterns)
 - project level snippets (currently only vscode) that reduce repetition and can be easily customized and extended
+
+## Getting started
+
+```sh
+npx degit digital-engineers/reactivation my-swanky-app
+cd my-swanky-app
+npm install
+```
 
 ## Debugging
 
