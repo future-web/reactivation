@@ -2,6 +2,10 @@
 
 A baseline for building react + redux web applications, with a simplistic webpack configuration that adds [CSS Modules](https://github.com/css-modules/css-modules), automatic SVG sprites, an easy to configure mock rest api and image asset minification out of the box.
 
+## Prerequisites
+
+- Node.js (8.9.0+)
+
 ## Getting started
 
 ```sh
@@ -39,3 +43,8 @@ By default during debugging the default rest endpoint is configured to the built
 ## Adding new resource types to the mock api
 
 The mock api resources reside within the `mockapi` directory, the powering technology is [json server](https://github.com/typicode/json-server) with a few extensions to enable absolute references to resources within json, by specifying the `baseUrl` pattern [[1]](https://github.com/digital-engineers/reactivation/blob/master/mockapi/db.json#L5).
+
+## #yarngate
+
+Q: I thought yarn was cool and if I don't use it I'm not a cool developer? 
+A: You can substitude yarn appropriately with any commands, but please consider why you use yarn over npm.
