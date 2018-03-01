@@ -28,8 +28,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy",
-      "\\.svg$": "@digital-engineers/reactivation-scripts/lib/empty-react-component"
+      "\\.css$": "identity-obj-proxy"
     },
     "collectCoverageFrom": [
       "src/**/*"
