@@ -2,6 +2,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
+  background-size: contain;
 }
 
 .host[data-type=home] {
