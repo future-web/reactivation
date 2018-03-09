@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.40",
-    "@digital-engineers/babel-preset-reactivation": "^0.2.1",
+    "@digital-engineers/babel-preset-reactivation": "^1.0.0",
     "@digital-engineers/eslint-config-reactivation": "^0.2.1",
     "@digital-engineers/reactivation-scripts": "^1.0.0",
     "@digital-engineers/stylelint-config-reactivation": "^1.0.0",
