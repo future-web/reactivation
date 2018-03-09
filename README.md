@@ -1,5 +1,7 @@
 # Reactivation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/digital-engineers/reactivation.svg)](https://greenkeeper.io/)
+
 A baseline for building react + redux web applications, with a simplistic webpack configuration that adds **[CSS Modules](https://github.com/css-modules/css-modules)**, automatic SVG sprites, an easy to configure mock rest api and image asset minification out of the box.
 
 ## Prerequisites
