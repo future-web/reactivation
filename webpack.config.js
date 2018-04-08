@@ -106,6 +106,8 @@ if (isProduction) {
   plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin(), extractCss);
 }
 
+const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
+
 const optimization = {
   splitChunks: {
     chunks: "all"
@@ -121,6 +123,7 @@ module.exports = {
   module: {
     rules
   },
+  devtool,
   output: {
     path: buildDirectory,
     filename: ASSET_NAME_TEMPLATE.replace("[ext]", "js"),
