@@ -1,12 +1,12 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const PostCSSAssetsPlugin = require("postcss-assets-webpack-plugin");
-const Autoprefixer = require("autoprefixer");
-const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
+import path from "path";
+import webpack, { EnvironmentPlugin } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import ExtractTextPlugin from "extract-text-webpack-plugin";
+import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import PostCSSAssetsPlugin from "postcss-assets-webpack-plugin";
+import Autoprefixer from "autoprefixer";
+import ImageminPlugin from "imagemin-webpack-plugin";
+import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
 const mode = process.env.NODE_ENV;
 const isProduction = process.env.NODE_ENV === "production";
@@ -91,7 +91,7 @@ const rules = [
 
 const plugins = [
   new CaseSensitivePathsPlugin(),
-  new webpack.EnvironmentPlugin(["API_BASE_URI"]),
+  new EnvironmentPlugin(["API_BASE_URI"]),
   new PostCSSAssetsPlugin({
     plugins: [Autoprefixer],
     log: false
@@ -106,13 +106,15 @@ if (isProduction) {
   plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin(), extractCss);
 }
 
+const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
+
 const optimization = {
   splitChunks: {
     chunks: "all"
   }
 };
 
-module.exports = {
+export default {
   mode,
   entry,
   context,
@@ -121,6 +123,7 @@ module.exports = {
   module: {
     rules
   },
+  devtool,
   output: {
     path: buildDirectory,
     filename: ASSET_NAME_TEMPLATE.replace("[ext]", "js"),
