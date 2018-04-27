@@ -1,5 +1,5 @@
 import path from "path";
-import webpack, { EnvironmentPlugin } from "webpack";
+import { EnvironmentPlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
