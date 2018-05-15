@@ -44,7 +44,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.45",
+    "@babel/core": "7.0.0-beta.47",
     "@digital-engineers/babel-preset-reactivation": "^1.0.0",
     "@digital-engineers/eslint-config-reactivation": "^0.2.1",
     "@digital-engineers/stylelint-config-reactivation": "^1.0.0",
