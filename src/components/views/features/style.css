@@ -14,7 +14,7 @@
   --grid-min-item-size: 300px;
   --grid-gutter-size: 20px;
 
-  composes: grid from '../../styles/grid.css';
+  composes: grid from '../../../styles/grid.css';
   justify-content: center;
   margin-top: 20px;
   width: 100%;

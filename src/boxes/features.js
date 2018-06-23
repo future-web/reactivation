@@ -17,6 +17,15 @@ class FeaturesAdapter {
     return this.state.items;
   }
 
+  matching(query) {
+    const pattern = new RegExp(query, "i");
+    const matchingFeatures = this.items.filter(
+      f => f.title.match(pattern) || f.description.match(pattern)
+    );
+
+    return matchingFeatures;
+  }
+
   async getFeatures() {
     this.update({ items: await this.service.getFeatures() });
   }

@@ -10,7 +10,7 @@ import Features from "./boxes/features";
 
 import App from "./components/App";
 
-import FeaturesContainer from "./containers/FeaturesContainer";
+import FeaturesContainer from "./components/views/features";
 
 import "./styles/global.css";
 
