@@ -1,17 +1,11 @@
-import createBox from "../bigbox";
+import createBox, { Adapter } from "../bigbox";
 
 import Service from "../contexts/service";
 
-const INITIAL_STATE = {
-  items: []
-};
-
-class FeaturesAdapter {
-  constructor(state, update, service) {
-    this.state = state;
-    this.update = update;
-    this.service = service;
-  }
+export class Features extends Adapter {
+  state = {
+    items: []
+  };
 
   get items() {
     return this.state.items;
@@ -27,8 +21,8 @@ class FeaturesAdapter {
   }
 
   async getFeatures() {
-    this.update({ items: await this.service.getFeatures() });
+    this.setState({ items: await this.props.service.getFeatures() });
   }
 }
 
-export default createBox(FeaturesAdapter, [Service], INITIAL_STATE);
+export default createBox(Features, { service: Service });

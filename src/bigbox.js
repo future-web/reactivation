@@ -1,24 +1,30 @@
 import React from "react";
 
-import State from "./state";
+export class Adapter extends React.Component {
+  render() {
+    return this.props.children(this);
+  }
+}
 
-export default function createBox(Adapter, contexts, initialState) {
+export default function createBox(Adapter, contexts) {
   const Ctx = React.createContext(null);
-  const [context] = contexts; // TODO: reduce
+  const context = contexts.service; // TODO:
 
   const Provider = ({ children }) => (
-    <State initial={initialState}>
-      {(state, updater) => (
-        <context.Consumer>
-          {service => (
-            <Ctx.Provider value={new Adapter(state, updater, service)}>
-              {children}
-            </Ctx.Provider>
+    <context.Consumer>
+      {service => (
+        <Adapter service={service}>
+          {adapter => (
+            <Ctx.Provider value={{ adapter }}>{children}</Ctx.Provider>
           )}
-        </context.Consumer>
+        </Adapter>
       )}
-    </State>
+    </context.Consumer>
   );
 
-  return { Provider, Consumer: Ctx.Consumer };
+  const Consumer = ({ children }) => (
+    <Ctx.Consumer>{({ adapter }) => children(adapter)}</Ctx.Consumer>
+  );
+
+  return { Provider, Consumer };
 }
