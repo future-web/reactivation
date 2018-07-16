@@ -16,7 +16,10 @@
     "last 2 edge versions"
   ],
   "eslintConfig": {
-    "extends": "@digital-engineers/eslint-config-reactivation"
+    "extends": "@digital-engineers/eslint-config-reactivation",
+    "rules": {
+      "react/jsx-one-expression-per-line": "off"
+    }
   },
   "babel": {
     "presets": [
