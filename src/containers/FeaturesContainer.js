@@ -15,7 +15,8 @@ export class Features extends React.Component<Props> {
   };
 
   componentDidMount() {
-    this.props.onRequestFeatures();
+    const { onRequestFeatures } = this.props;
+    onRequestFeatures();
   }
 
   handleQueryChange = query => this.setState({ query });
