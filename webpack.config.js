@@ -50,7 +50,7 @@ const rules = [
     use: cssPipeline({
       loader: "css-loader",
       options: {
-        module: true,
+        modules: true,
         localIdentName
       }
     })
