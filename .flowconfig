@@ -1,5 +1,2 @@
-# ideally this was part of the package.json
-# https://github.com/facebook/flow/issues/3569
-
 [include]
 src/*.js
