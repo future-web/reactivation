@@ -1,6 +1,3 @@
-.root {
-}
-
 /* TODO: move to root sidebar */
 .root + .root {
   border-top: 1px solid #e1e1e1;

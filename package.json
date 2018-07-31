@@ -9,83 +9,63 @@
     "lint:js": "eslint --ignore-path .gitignore .",
     "lint:css": "stylelint src/**/*.css"
   },
-  "browserslist": [
-    "last 2 chrome versions",
-    "last 2 safari versions",
-    "last 2 firefox versions",
-    "last 2 edge versions"
-  ],
-  "eslintConfig": {
-    "extends": "@digital-engineers/eslint-config-reactivation"
-  },
-  "babel": {
-    "presets": [
-      "@digital-engineers/babel-preset-reactivation"
-    ]
-  },
-  "stylelint": {
-    "extends": "@digital-engineers/stylelint-config-reactivation"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
-    },
-    "collectCoverageFrom": [
-      "src/**/*"
-    ]
-  },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "classnames": "^2.2.6",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.50",
-    "@digital-engineers/babel-preset-reactivation": "^1.0.0",
-    "@digital-engineers/eslint-config-reactivation": "^0.2.1",
-    "@digital-engineers/stylelint-config-reactivation": "^1.0.0",
-    "autoprefixer": "^8.5.1",
+    "@babel/core": "7.0.0-beta.55",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.55",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-flow": "^7.0.0-beta.55",
+    "autoprefixer": "^9.0.2",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^8.2.3",
-    "babel-jest": "^23.0.1",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0-beta.0",
     "blessed": "^0.1.81",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "chalk": "^2.4.1",
-    "css-loader": "^0.28.11",
+    "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.8.2",
-    "esm": "^3.0.38",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "esm": "^3.0.72",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
-    "flow-bin": "^0.75.0",
+    "flow-bin": "^0.77.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "imagemin-webpack-plugin": "^2.1.5",
-    "jest": "^23.0.1",
+    "imagemin-webpack-plugin": "^2.2.0",
+    "jest": "^23.4.2",
     "json-server": "^0.14.0",
-    "optimize-css-assets-webpack-plugin": "^4.0.2",
-    "postcss-assets-webpack-plugin": "^2.0.0",
-    "prettier": "^1.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "postcss-assets-webpack-plugin": "^3.0.0",
+    "prettier": "^1.14.0",
     "react-dev-utils": "^5.0.1",
     "react-error-overlay": "^4.0.0",
     "style-loader": "^0.21.0",
-    "stylelint": "^9.2.1",
+    "stylelint": "^9.4.0",
+    "stylelint-config-css-modules": "^1.3.0",
+    "stylelint-config-standard": "^18.2.0",
     "svg-fill-loader": "0.0.8",
-    "thread-loader": "^1.1.5",
-    "webpack": "^4.9.1",
-    "webpack-dev-server": "^3.1.4"
+    "thread-loader": "^1.2.0",
+    "webpack": "^4.16.3",
+    "webpack-dev-server": "^3.1.5"
   }
 }

@@ -15,6 +15,7 @@ export default class App extends React.Component<Props> {
   };
 
   handleOpenSidebar = () => this.setState({ isSidebarOpen: true });
+
   handleCloseSidebar = () => this.setState({ isSidebarOpen: false });
 
   render() {
@@ -30,6 +31,7 @@ export default class App extends React.Component<Props> {
         <div className={styles.main}>
           <button
             className={styles.closer}
+            type="button"
             hidden={!isSidebarOpen}
             onClick={this.handleCloseSidebar}
           />
@@ -37,6 +39,7 @@ export default class App extends React.Component<Props> {
             <div className={styles.header}>
               <button
                 className={styles.menuButton}
+                type="button"
                 onClick={this.handleOpenSidebar}
               />
               <div className={styles.title}>The Reactivation Baseline</div>
