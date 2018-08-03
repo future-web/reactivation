@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
@@ -26,7 +26,7 @@
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
     "@babel/preset-flow": "^7.0.0-beta.55",
-    "autoprefixer": "^9.0.2",
+    "autoprefixer": "^9.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.4.2",
@@ -44,7 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
-    "esm": "^3.0.72",
+    "esm": "^3.0.74",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
@@ -65,7 +65,7 @@
     "stylelint-config-standard": "^18.2.0",
     "svg-fill-loader": "0.0.8",
     "thread-loader": "^1.2.0",
-    "webpack": "^4.16.3",
+    "webpack": "^4.16.4",
     "webpack-dev-server": "^3.1.5"
   }
 }
