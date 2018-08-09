@@ -25,7 +25,9 @@ function getMatchingFeatures(features, query) {
 
 const FeaturesList = ({ features }: ListProps) => (
   <div className={styles.features}>
-    {features.map(feature => <Feature key={feature.id} {...feature} />)}
+    {features.map(feature => (
+      <Feature key={feature.id} {...feature} />
+    ))}
   </div>
 );
 
