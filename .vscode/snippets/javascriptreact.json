@@ -2,15 +2,15 @@
   "react-component": {
     "prefix": "react-component",
     "body": [
-      "import * as React from \"react\";",
+      "import React from \"react\";",
       "",
       "import styles from \"./style.css\";",
       "",
-      "type Props = {",
+      "type PropsType = {",
       "  children?: React.Node",
       "};",
       "",
-      "const ${1:Component} = ({ children }: Props) => (",
+      "const ${1:Component} = ({ children }: PropsType) => (",
       "  <div className={styles.host}>{children}</div>",
       ");",
       "",
@@ -22,21 +22,64 @@
       ""
     ]
   },
-  "react-container": {
-    "prefix": "react-container",
+  "react-component-class": {
+    "prefix": "react-component-class",
     "body": [
-      "import * as React from \"react\";",
+      "import React from \"react\";",
+      "",
+      "import styles from \"./style.css\";",
+      "",
+      "type PropsType = {",
+      "  children?: React.Node",
+      "};",
+      "",
+      "type StateType = {",
+      "  count: number",
+      "};",
+      "",
+      "export default class ${1:Component} extends React.Component<PropsType, StateType> {",
+      "  static defaultProps = {",
+      "    children: null",
+      "  };",
+      "",
+      "  state = {",
+      "    count: 0",
+      "  };",
+      "",
+      "  handleClick = () => this.setState(({ count }) => ({ count: count + 1 }));",
+      "",
+      "  render() {",
+      "    const { children } = this.props;",
+      "    const { count } = this.state;",
+      "",
+      "    return (",
+      "      <div className={styles.host}>",
+      "        <button type=\"button\" onClick={this.handleClick}>",
+      "          Click count: {count}",
+      "        </button>",
+      "        <div>{children}</div>",
+      "      </div>",
+      "    );",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+  "redux-container": {
+    "prefix": "redux-container",
+    "body": [
+      "import React from \"react\";",
       "import { connect } from \"react-redux\";",
       "",
       "import * as ${2}Actions from \"../actions/${1}\";",
       "import ${3:${1}View} from \"../components/${3}\";",
       "",
-      "type Props = {",
+      "type PropsType = {",
       "  ${2}: any[],",
       "  onRequest${1}: void => void",
       "};",
       "",
-      "export class ${1:Things} extends React.Component<Props> {",
+      "export class ${1:Things} extends React.Component<PropsType> {",
       "  componentDidMount() {",
       "    this.props.onRequest${1}();",
       "  }",
@@ -56,8 +99,8 @@
       ""
     ]
   },
-  "react-async-action-constants": {
-    "prefix": "react-async-action-constants",
+  "redux-async-action-constants": {
+    "prefix": "redux-async-action-constants",
     "body": [
       "export const FETCH_${1:FEATURE}_REQUEST = \"FETCH_${1}_REQUEST\";",
       "export const FETCH_${1}_FAILURE = \"FETCH_${1}_FAILURE\";",
@@ -65,8 +108,8 @@
       ""
     ]
   },
-  "react-reducer": {
-    "prefix": "react-reducer",
+  "redux-reducer": {
+    "prefix": "redux-reducer",
     "body": [
       "import { ${2} } from \"../constants\";",
       "",
