@@ -5,6 +5,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
 import PostCSSAssetsPlugin from "postcss-assets-webpack-plugin";
 import Autoprefixer from "autoprefixer";
+import cssvariables from "postcss-css-variables";
 import ImageminPlugin from "imagemin-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
@@ -93,7 +94,7 @@ const plugins = [
   new CaseSensitivePathsPlugin(),
   new EnvironmentPlugin(["API_BASE_URI"]),
   new PostCSSAssetsPlugin({
-    plugins: [Autoprefixer],
+    plugins: [cssvariables, Autoprefixer],
     log: false
   }),
   new HtmlWebpackPlugin({
