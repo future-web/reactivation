@@ -1,6 +1,6 @@
-html {
-  --accent-color: #91cfff;
+@import "variables.css";
 
+html {
   font-family: sans-serif;
 }
 

@@ -11,10 +11,9 @@
 }
 
 .features {
-  --grid-min-item-size: 300px;
-  --grid-gutter-size: 20px;
-
-  composes: grid from '../../styles/grid.css';
+  display: grid;
+  grid-gap: var(--features-gutter-size);
+  grid-template: auto / repeat(auto-fill, minmax(var(--features-min-item-size), var(--features-max-item-size, 1fr)));
   justify-content: center;
   margin-top: 20px;
   width: 100%;

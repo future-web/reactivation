@@ -1,15 +1,15 @@
-import * as React from "react";
+import React from "react";
 
-import Icon from "../Icon";
+import Icon from "../icon";
 
 import styles from "./link-item.css";
 
-type Props = {
+type PropsType = {
   icon: string,
   children?: React.Node
 };
 
-const SidebarLinkItem = ({ icon, children, ...etc }: Props) => (
+const SidebarLinkItem = ({ icon, children, ...etc }: PropsType) => (
   <a className={styles.root} {...etc}>
     <Icon className={styles.icon} type={icon} />
     <span>{children}</span>

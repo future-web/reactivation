@@ -1,14 +1,14 @@
-import * as React from "react";
+import React from "react";
 
 import styles from "./style.css";
 
-type Props = {
+type PropsType = {
   icon?: string,
   title: string,
   description: string
 };
 
-const Feature = ({ icon, title, description }: Props) => (
+const Feature = ({ icon, title, description }: PropsType) => (
   <div className={styles.host}>
     {icon && (
       <img className={styles.icon} src={icon} alt={`Icon for ${title}`} />

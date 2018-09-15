@@ -1,15 +1,15 @@
-import * as React from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import * as featureActions from "../actions/features";
-import FeaturesView from "../components/FeaturesView";
+import FeaturesView from "../components/features-view";
 
-type Props = {
+type PropsType = {
   features: any[],
   onRequestFeatures: void => void
 };
 
-export class Features extends React.Component<Props> {
+export class Features extends React.Component<PropsType> {
   state = {
     query: ""
   };

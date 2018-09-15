@@ -1,0 +1,11 @@
+/* stylelint-disable custom-property-empty-line-before */
+
+:root {
+  --accent-color: #91cfff;
+
+  --app-sidebar-width: 280px;
+
+  --features-min-item-size: 300px;
+  --features-gutter-size: 20px;
+  --feature-padding: 1.5rem;
+}

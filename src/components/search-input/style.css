@@ -1,0 +1,13 @@
+.host {
+  display: inline-flex;
+  appearance: none;
+  background: url(../../icons/magnifier.svg) no-repeat #fff 12px / 18px 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  padding-left: 42px;
+}
+
+.host:focus {
+  outline: 2px solid var(--accent-color);
+}

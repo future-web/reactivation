@@ -1,13 +1,13 @@
-import * as React from "react";
+import React from "react";
 
 import styles from "./section.css";
 
-type Props = {
+type PropsType = {
   title?: string,
   children?: React.Node
 };
 
-const SidebarSection = ({ title, children }: Props) => (
+const SidebarSection = ({ title, children }: PropsType) => (
   <div className={styles.root}>
     {title && <div className={styles.title}>{title}</div>}
     <div className={styles.content}>{children}</div>

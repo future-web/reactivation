@@ -7,15 +7,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Api from "./services/api";
 import reducer from "./reducers";
-import FeaturesContainer from "./containers/FeaturesContainer";
-import App from "./components/App";
+import FeaturesContainer from "./containers/features";
+import App from "./components/app";
 
 import "./styles/global.css";
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const api = new Api(process.env.API_BASE_URI);
+const api = new Api(process.env.API_BASE_URI || "");
 
 const store = createStore(
   reducer,

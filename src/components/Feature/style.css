@@ -1,10 +1,5 @@
 .host {
-  --feature-padding: 1.5rem;
-
-  background: #fff;
-  color: #555;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.075);
-  border-radius: 5px;
+  composes: box from "../../styles/design.css";
   line-height: 1.45;
   padding: var(--feature-padding);
 }
@@ -28,16 +23,3 @@
   margin: 5px 0 0;
   color: #999;
 }
-
-/*
-.swankyBulb [data-part=glow] {
-  fill: #ffefff;
-}
-
-.swankyBulb [data-part=bulb] {
-  fill: #e694e8;
-}
-
-.swankyBulb [data-part=thread] {
-  fill: #9ec7c4;
-} */

@@ -1,14 +1,14 @@
-import * as React from "react";
+import React from "react";
 import classnames from "classnames";
 
 import styles from "./style.css";
 
-type Props = {
+type PropsType = {
   className?: string,
   type: string
 };
 
-const Icon = ({ className, type }: Props) => (
+const Icon = ({ className, type }: PropsType) => (
   <span className={classnames(styles.host, className)} data-type={type} />
 );
 

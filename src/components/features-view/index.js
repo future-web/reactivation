@@ -1,15 +1,15 @@
-import * as React from "react";
+import React from "react";
 
-import SearchInput from "../SearchInput";
-import Feature from "../Feature";
+import SearchInput from "../search-input";
+import Feature from "../feature";
 
 import styles from "./style.css";
 
-type ListProps = {
+type ListPropsType = {
   features: any[]
 };
 
-type ViewProps = ListProps & {
+type ViewPropsType = ListPropsType & {
   query?: string,
   onQueryChange: string => void
 };
@@ -23,7 +23,7 @@ function getMatchingFeatures(features, query) {
   return matchingFeatures;
 }
 
-const FeaturesList = ({ features }: ListProps) => (
+const FeaturesList = ({ features }: ListPropsType) => (
   <div className={styles.features}>
     {features.map(feature => (
       <Feature key={feature.id} {...feature} />
@@ -31,7 +31,7 @@ const FeaturesList = ({ features }: ListProps) => (
   </div>
 );
 
-const FeaturesView = ({ features, query, onQueryChange }: ViewProps) => {
+const FeaturesView = ({ features, query, onQueryChange }: ViewPropsType) => {
   const matchingFeatures = getMatchingFeatures(features, query);
 
   return (
@@ -54,7 +54,7 @@ const FeaturesView = ({ features, query, onQueryChange }: ViewProps) => {
 };
 
 FeaturesView.defaultProps = {
-  query: undefined
+  query: null
 };
 
 export default FeaturesView;

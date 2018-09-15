@@ -1,6 +1,4 @@
 .root {
-  --app-sidebar-width: 280px;
-
   display: flex;
   min-height: 100vh;
   will-change: transform;

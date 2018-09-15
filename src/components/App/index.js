@@ -1,15 +1,15 @@
-import * as React from "react";
+import React from "react";
 import classnames from "classnames";
 
-import * as Sidebar from "../Sidebar";
+import * as Sidebar from "../sidebar";
 
 import styles from "./style.css";
 
-type Props = {
+type PropsType = {
   children: React.node
 };
 
-export default class App extends React.Component<Props> {
+export default class App extends React.Component<PropsType> {
   state = {
     isSidebarOpen: false
   };
