@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./style.css";
+import "./style.css";
 
 type PropsType = {
   icon?: string,
@@ -9,12 +9,10 @@ type PropsType = {
 };
 
 const Feature = ({ icon, title, description }: PropsType) => (
-  <div className={styles.host}>
-    {icon && (
-      <img className={styles.icon} src={icon} alt={`Icon for ${title}`} />
-    )}
-    <h1 className={styles.title}>{title}</h1>
-    <p className={styles.description}>{description}</p>
+  <div styleName="root">
+    {icon && <img styleName="icon" src={icon} alt={`Icon for ${title}`} />}
+    <h1 styleName="title">{title}</h1>
+    <p styleName="description">{description}</p>
   </div>
 );
 

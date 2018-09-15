@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./section.css";
+import "./section.css";
 
 type PropsType = {
   title?: string,
@@ -8,9 +8,9 @@ type PropsType = {
 };
 
 const SidebarSection = ({ title, children }: PropsType) => (
-  <div className={styles.root}>
-    {title && <div className={styles.title}>{title}</div>}
-    <div className={styles.content}>{children}</div>
+  <div styleName="root">
+    {title && <div styleName="title">{title}</div>}
+    <div styleName="content">{children}</div>
   </div>
 );
 

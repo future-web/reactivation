@@ -26,6 +26,13 @@ const cssPipeline = isProduction
   ? (...use) => extractCss.extract({ use })
   : (...use) => ["style-loader", ...use];
 
+const styleNameConfig = {
+  context,
+  webpackHotModuleReloading: true,
+  handleMissingStyleName: "ignore",
+  generateScopedName: localIdentName
+};
+
 const rules = [
   {
     // js pipeline
@@ -39,7 +46,8 @@ const rules = [
         loader: "babel-loader",
         options: {
           cacheDirectory: true,
-          highlightCode: true
+          highlightCode: true,
+          plugins: [["react-css-modules", styleNameConfig]]
         }
       }
     ]

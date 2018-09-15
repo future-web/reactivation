@@ -3,7 +3,7 @@ import React from "react";
 import SearchInput from "../search-input";
 import Feature from "../feature";
 
-import styles from "./style.css";
+import "./style.css";
 
 type ListPropsType = {
   features: any[]
@@ -24,7 +24,7 @@ function getMatchingFeatures(features, query) {
 }
 
 const FeaturesList = ({ features }: ListPropsType) => (
-  <div className={styles.features}>
+  <div styleName="features">
     {features.map(feature => (
       <Feature key={feature.id} {...feature} />
     ))}
@@ -35,9 +35,9 @@ const FeaturesView = ({ features, query, onQueryChange }: ViewPropsType) => {
   const matchingFeatures = getMatchingFeatures(features, query);
 
   return (
-    <div className={styles.host}>
+    <div styleName="root">
       <SearchInput
-        className={styles.searchbox}
+        styleName="searchbox"
         placeholder="Search for a feature"
         value={query}
         onChange={e => onQueryChange(e.target.value)}
@@ -45,9 +45,7 @@ const FeaturesView = ({ features, query, onQueryChange }: ViewPropsType) => {
       {matchingFeatures.length ? (
         <FeaturesList features={matchingFeatures} />
       ) : (
-        <div className={styles.notice}>
-          No features matched your search terms.
-        </div>
+        <div styleName="notice">No features matched your search terms.</div>
       )}
     </div>
   );

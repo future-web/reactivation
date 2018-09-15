@@ -2,7 +2,7 @@ import React from "react";
 
 import Icon from "../icon";
 
-import styles from "./link-item.css";
+import "./link-item.css";
 
 type PropsType = {
   icon: string,
@@ -10,8 +10,8 @@ type PropsType = {
 };
 
 const SidebarLinkItem = ({ icon, children, ...etc }: PropsType) => (
-  <a className={styles.root} {...etc}>
-    <Icon className={styles.icon} type={icon} />
+  <a styleName="root" {...etc}>
+    <Icon styleName="icon" type={icon} />
     <span>{children}</span>
   </a>
 );

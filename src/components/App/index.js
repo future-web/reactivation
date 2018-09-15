@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import * as Sidebar from "../sidebar";
 
-import styles from "./style.css";
+import "./style.css";
 
 type PropsType = {
   children: React.node
@@ -22,32 +22,28 @@ export default class App extends React.Component<PropsType> {
     const { children } = this.props;
     const { isSidebarOpen } = this.state;
 
-    const rootClassName = classnames(styles.root, {
-      [styles.isSidebarOpen]: isSidebarOpen
-    });
-
     return (
-      <div className={rootClassName}>
-        <div className={styles.main}>
+      <div styleName={classnames("root", { isSidebarOpen })}>
+        <div styleName="main">
           <button
-            className={styles.closer}
+            styleName="closer"
             type="button"
             hidden={!isSidebarOpen}
             onClick={this.handleCloseSidebar}
           />
-          <div className={styles.view}>
-            <div className={styles.header}>
+          <div styleName="view">
+            <div styleName="header">
               <button
-                className={styles.menuButton}
+                styleName="menuButton"
                 type="button"
                 onClick={this.handleOpenSidebar}
               />
-              <div className={styles.title}>The Reactivation Baseline</div>
+              <div styleName="title">The Reactivation Baseline</div>
             </div>
             {children}
           </div>
         </div>
-        <Sidebar.Host className={styles.sidebar}>
+        <Sidebar.Host styleName="sidebar">
           <Sidebar.Section title="Area one">
             <Sidebar.LinkItem icon="home">Home</Sidebar.LinkItem>
             <Sidebar.LinkItem icon="features">Features</Sidebar.LinkItem>

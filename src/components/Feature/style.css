@@ -1,4 +1,4 @@
-.host {
+.root {
   composes: box from "../../styles/design.css";
   line-height: 1.45;
   padding: var(--feature-padding);
