@@ -1,37 +1,21 @@
-import React from "react";
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+const dsn = process.env.SENTRY_DSN;
 
-import Api from "./services/api";
-import reducer from "./reducers";
-import FeaturesContainer from "./containers/features";
-import App from "./components/app";
+const appTask = import(/* webpackChunkName: "app" */ "./app");
+const sentryTask = import(/* webpackChunkName: "sentry" */ "@sentry/browser");
 
-import "./styles/global.css";
+const errorHandler = async err => {
+  const { init, captureException } = await sentryTask;
+  init({ dsn });
+  captureException(err);
 
-// eslint-disable-next-line no-underscore-dangle
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  throw err;
+};
 
-const api = new Api(process.env.API_BASE_URI || "");
-
-const store = createStore(
-  reducer,
-  composeEnhancers(applyMiddleware(thunk.withExtraArgument({ api })))
-);
-
-const root = (
-  <Provider store={store}>
-    <Router>
-      <App>
-        <Switch>
-          <Route component={FeaturesContainer} />
-        </Switch>
-      </App>
-    </Router>
-  </Provider>
-);
-
-render(root, document.querySelector("#root"));
+(async () => {
+  try {
+    const app = await appTask;
+    await app.default(errorHandler);
+  } catch (err) {
+    errorHandler(err);
+  }
+})();
