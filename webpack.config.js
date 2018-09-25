@@ -10,7 +10,7 @@ import ImageminPlugin from "imagemin-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
 const mode = process.env.NODE_ENV;
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = mode === "production";
 const ASSET_NAME_TEMPLATE = "[name]-[hash:6].[ext]";
 const localIdentName = isProduction ? "[hash:6]" : "[path]-[local]_[hash:6]";
 const context = path.resolve(__dirname, "src");
