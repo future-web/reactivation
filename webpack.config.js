@@ -1,8 +1,8 @@
 import path from "path";
 import { EnvironmentPlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import ExtractTextPlugin from "extract-text-webpack-plugin";
-import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import OptimizeCssnanoPlugin from "@intervolga/optimize-cssnano-plugin";
 import PostCSSAssetsPlugin from "postcss-assets-webpack-plugin";
 import Autoprefixer from "autoprefixer";
 import cssvariables from "postcss-css-variables";
@@ -18,12 +18,12 @@ const buildDirectory = path.resolve("build");
 const entry = ".";
 const publicPath = "/";
 
-const extractCss = new ExtractTextPlugin({
+const extractCss = new MiniCssExtractPlugin({
   filename: ASSET_NAME_TEMPLATE.replace("[ext]", "css")
 });
 
 const cssPipeline = isProduction
-  ? (...use) => extractCss.extract({ use })
+  ? (...use) => [MiniCssExtractPlugin.loader, ...use]
   : (...use) => ["style-loader", ...use];
 
 const styleNameConfig = {
@@ -60,6 +60,7 @@ const rules = [
       loader: "css-loader",
       options: {
         modules: true,
+        sourceMap: true,
         localIdentName
       }
     })
@@ -112,7 +113,11 @@ const plugins = [
 ];
 
 if (isProduction) {
-  plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin(), extractCss);
+  plugins.push(
+    extractCss,
+    new OptimizeCssnanoPlugin({ sourceMap: true }),
+    new ImageminPlugin()
+  );
 }
 
 const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
