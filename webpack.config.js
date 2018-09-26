@@ -1,6 +1,7 @@
 import path from "path";
 import { EnvironmentPlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import PreloadWebpackPlugin from "preload-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import OptimizeCssnanoPlugin from "@intervolga/optimize-cssnano-plugin";
 import PostCSSAssetsPlugin from "postcss-assets-webpack-plugin";
@@ -108,8 +109,13 @@ const plugins = [
   }),
   new HtmlWebpackPlugin({
     template: "index.html",
-    minify: { collapseWhitespace: true, collapseBooleanAttributes: true }
-  })
+    minify: {
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeScriptTypeAttributes: true
+    }
+  }),
+  new PreloadWebpackPlugin()
 ];
 
 if (isProduction) {
