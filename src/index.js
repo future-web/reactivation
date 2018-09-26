@@ -1,7 +1,7 @@
 const dsn = process.env.SENTRY_DSN;
 
-const appTask = import(/* webpackChunkName: "app" */ "./app");
-const sentryTask = import(/* webpackChunkName: "sentry" */ "@sentry/browser");
+const appTask = import(/* webpackPreload: true, webpackChunkName: "app" */ "./app");
+const sentryTask = import(/* webpackPreload: true, webpackChunkName: "sentry" */ "@sentry/browser");
 
 const errorHandler = async err => {
   const { init, captureException } = await sentryTask;
