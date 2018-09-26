@@ -12,7 +12,7 @@ import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 
 const mode = process.env.NODE_ENV;
 const isProduction = mode === "production";
-const ASSET_NAME_TEMPLATE = "[name]-[hash:6].[ext]";
+const ASSET_NAME_TEMPLATE = "[name]-[contenthash].[ext]";
 const localIdentName = isProduction ? "[hash:6]" : "[path]-[local]_[hash:6]";
 const context = path.resolve(__dirname, "src");
 const buildDirectory = path.resolve("build");
@@ -147,10 +147,6 @@ export default {
   output: {
     path: buildDirectory,
     filename: ASSET_NAME_TEMPLATE.replace("[ext]", "js"),
-    chunkFilename: ASSET_NAME_TEMPLATE.replace("[ext]", "js").replace(
-      "[hash:6]",
-      "[chunkhash:6]"
-    ),
     publicPath
   }
 };
