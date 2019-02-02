@@ -26,7 +26,7 @@ Specifically we already:
 ## Getting started
 
 ```sh
-npx degit digital-engineers/reactivation my-swanky-app
+npx degit future-web/reactivation my-swanky-app
 cd my-swanky-app
 npm install
 ```
