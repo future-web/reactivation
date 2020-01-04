@@ -2,8 +2,8 @@ import React from "react";
 
 import "./style.css";
 
-type PropsType = {
-  className?: string
+interface PropsType {
+  className?: string;
 };
 
 const SearchInput = ({ className, ...props }: PropsType) => (

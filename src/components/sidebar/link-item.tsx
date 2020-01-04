@@ -4,9 +4,9 @@ import Icon from "../icon";
 
 import "./link-item.css";
 
-type PropsType = {
-  icon: string,
-  children?: React.Node
+interface PropsType {
+  icon: string;
+  children?: React.Node;
 };
 
 const SidebarLinkItem = ({ icon, children, ...etc }: PropsType) => (

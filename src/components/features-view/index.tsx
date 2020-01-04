@@ -1,17 +1,18 @@
 import React from "react";
 
-import SearchInput from "../search-input";
-import Feature from "../feature";
+import SearchInput from "components/search-input";
+import Feature from "components/feature";
 
 import "./style.css";
 
-type ListPropsType = {
-  features: any[]
+interface ListPropsType {
+  features: any[];
 };
 
-type ViewPropsType = ListPropsType & {
-  query?: string,
-  onQueryChange: string => void
+interface ViewPropsType {
+  query?: string;
+  features: any[];
+  onQueryChange(query: string);
 };
 
 function getMatchingFeatures(features, query) {

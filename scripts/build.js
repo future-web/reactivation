@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: off  */
 /* eslint no-console: off  */
 import { promisify } from "util";
 import chalk from "chalk";

@@ -2,11 +2,11 @@ import React from "react";
 
 import "./style.css";
 
-type PropsType = {
-  icon?: string,
-  title: string,
-  description: string
-};
+interface PropsType {
+  icon?: string;
+  title: string;
+  description: string;
+}
 
 const Feature = ({ icon, title, description }: PropsType) => (
   <div styleName="root">

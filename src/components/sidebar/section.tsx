@@ -2,9 +2,9 @@ import React from "react";
 
 import "./section.css";
 
-type PropsType = {
-  title?: string,
-  children?: React.Node
+interface PropsType {
+  title?: string;
+  children?: React.Node;
 };
 
 const SidebarSection = ({ title, children }: PropsType) => (

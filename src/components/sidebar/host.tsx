@@ -2,8 +2,8 @@ import React from "react";
 
 import "./host.css";
 
-type PropsType = {
-  className?: string
+interface PropsType {
+  className?: string;
 };
 
 const SidebarHost = ({ className, ...etc }: PropsType) => (

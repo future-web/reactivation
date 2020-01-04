@@ -2,9 +2,9 @@ import React from "react";
 
 import "./style.css";
 
-type PropsType = {
-  className?: string,
-  type: string
+interface PropsType {
+  className?: string;
+  type: string;
 };
 
 const Icon = ({ className, type }: PropsType) => (
