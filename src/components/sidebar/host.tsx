@@ -4,7 +4,7 @@ import "./host.css";
 
 interface PropsType {
   className?: string;
-};
+}
 
 const SidebarHost = ({ className, ...etc }: PropsType) => (
   <div className={className} styleName="root" {...etc} />

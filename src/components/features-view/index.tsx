@@ -1,19 +1,20 @@
 import React from "react";
 
+import { FeatureType } from "@types/api/feature";
 import SearchInput from "components/search-input";
 import Feature from "components/feature";
 
 import "./style.css";
 
 interface ListPropsType {
-  features: any[];
-};
+  features: FeatureType[];
+}
 
 interface ViewPropsType {
   query?: string;
-  features: any[];
+  features: FeatureType[];
   onQueryChange(query: string);
-};
+}
 
 function getMatchingFeatures(features, query) {
   const pattern = new RegExp(query, "i");

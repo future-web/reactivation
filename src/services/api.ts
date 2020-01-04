@@ -1,5 +1,4 @@
 import { Api } from "@types/api";
-import { Fetcher } from "utils/fetcher";
 import { JsonService } from "utils/json";
 
 async function fetch(http, path) {

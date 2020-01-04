@@ -7,7 +7,7 @@ import "./style.css";
 
 interface PropsType {
   children: React.node;
-};
+}
 
 export const App = ({ children }: PropsType) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -45,4 +45,4 @@ export const App = ({ children }: PropsType) => {
       </Sidebar.Host>
     </div>
   );
-}
+};

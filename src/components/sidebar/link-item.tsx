@@ -7,7 +7,7 @@ import "./link-item.css";
 interface PropsType {
   icon: string;
   children?: React.Node;
-};
+}
 
 const SidebarLinkItem = ({ icon, children, ...etc }: PropsType) => (
   <a styleName="root" {...etc}>

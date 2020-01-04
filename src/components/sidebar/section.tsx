@@ -5,7 +5,7 @@ import "./section.css";
 interface PropsType {
   title?: string;
   children?: React.Node;
-};
+}
 
 const SidebarSection = ({ title, children }: PropsType) => (
   <div styleName="root">

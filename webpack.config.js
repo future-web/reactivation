@@ -102,7 +102,7 @@ const plugins = [
 ];
 
 if (isProduction) {
-  plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin(), extractCss);
+  plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin.default(), extractCss);
 }
 
 const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";

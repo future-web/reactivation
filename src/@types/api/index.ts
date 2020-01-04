@@ -1,5 +1,5 @@
-import { Feature } from "./feature";
+import { FeatureType } from "./feature";
 
 export interface Api {
-  getFeatures(): Promise<Feature>
+  getFeatures(): Promise<FeatureType>;
 }
