@@ -4,20 +4,23 @@
     "sourceType": "module"
   },
   "env": {
-    "browser": true,
-    "es6": true,
-    "commonjs": true,
     "node": true,
-    "jest": true
-  },
-  "globals": {
-    "fetch": true
+    "es6": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/react"
+  ],
+  "overrides": [
+    {
+      "files": "src/**/*",
+      "env": {
+        "browser": true,
+        "node": false
+      }
+    }
   ],
   "plugins": ["@typescript-eslint", "react-hooks"],
   "rules": {
@@ -32,14 +35,6 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
-  "overrides": [
-    {
-      "files": "*test.js",
-      "env": {
-        "jest": true
-      }
-    }
-  ],
   "settings": {
     "react": {
       "version": "detect"
