@@ -88,7 +88,7 @@ const rules = [
 ];
 
 const plugins = [
-  new webpack.EnvironmentPlugin(Object.keys(process.env)),
+  new webpack.EnvironmentPlugin("NODE_ENV"),
   new CaseSensitivePathsPlugin(),
   new PostCSSAssetsPlugin({
     plugins: [cssvariables, Autoprefixer],
