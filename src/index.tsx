@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
 
+import { config } from "services/ambient-config";
 import { HttpApi } from "services/api";
 import { Fetcher } from "utils/fetcher";
 import { ApiContext } from "contexts/api";
@@ -10,7 +11,7 @@ import { App } from "components/app";
 
 import "./styles/global.css";
 
-const api = new HttpApi(process.env.API_BASE_URI, new Fetcher());
+const api = new HttpApi(config.apiBaseUrl, new Fetcher());
 
 const root = (
   <ApiContext.Provider value={api}>
