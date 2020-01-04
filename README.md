@@ -41,7 +41,7 @@ npm install
 
 ## Configuring the default rest api endpoint
 
-By default during debugging the default rest endpoint is configured to the built in mock api, you can override this during debugging and building by specifying the `API_BASE_URI` environment variable.
+By default during debugging the default rest endpoint is configured to the built in mock api, you can override this during debugging and building by specifying the `API_BASE_URL` environment variable.
 
 ## Adding new resource types to the mock api
 

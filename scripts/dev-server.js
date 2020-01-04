@@ -9,7 +9,7 @@ import DashboardPlugin from "./dashboard-plugin.js";
 const MOCK_API_PATH = "/__mockapi";
 
 process.env.NODE_ENV = "development";
-process.env.API_BASE_URI = process.env.API_BASE_URI || MOCK_API_PATH;
+process.env.API_BASE_URL = process.env.API_BASE_URL || MOCK_API_PATH;
 
 async function go() {
   const host = process.env.HOST || "0.0.0.0";
