@@ -1,22 +1,25 @@
 .root {
   composes: box from "../../styles/design.css";
   line-height: 1.45;
+}
+
+.details {
   padding: var(--feature-padding);
 }
 
 .icon {
   display: block;
-  width: calc(100% + 3rem);
-  margin: calc(var(--feature-padding) * -1) calc(var(--feature-padding) * -1) 0;
+  width: 100%;
   height: 190px;
   object-fit: cover;
+  object-position: bottom right;
   border-radius: 5px 5px 0 0;
 }
 
 .title {
   font-weight: inherit;
   font-size: 1.2em;
-  margin: var(--feature-padding) 0 0;
+  margin: 0;
 }
 
 .description {

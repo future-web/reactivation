@@ -11,7 +11,9 @@ interface PropsType {
 export const Feature = ({ feature: { icon, title, description } }: PropsType) => (
   <div styleName="root">
     {icon && <img styleName="icon" src={icon} alt={`Icon for ${title}`} />}
-    <h1 styleName="title">{title}</h1>
-    <p styleName="description">{description}</p>
+    <div styleName="details">
+      <h1 styleName="title">{title}</h1>
+      <p styleName="description">{description}</p>
+    </div>
   </div>
 );
