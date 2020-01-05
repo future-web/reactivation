@@ -1,7 +1,7 @@
 import { ApiType } from "@types/api";
 import { JsonService } from "services/json";
 
-async function fetch(http, path) {
+async function fetch(http: JsonService, path: string) {
   const [data] = await http.fetch(path);
   return data;
 }

@@ -71,13 +71,6 @@ async function getResponse(response: Response) {
   return body;
 }
 
-// note, we could use URLSearchParams here but not all browsers implement
-// this fully (especially with regards to encoding as a string)
-const toQueryString = (obj: {}) =>
-  Object.keys(obj)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
-    .join("&");
-
 export class JsonService {
   baseUrl: string;
   fetcher: Fetcher;
@@ -89,7 +82,7 @@ export class JsonService {
   }
 
   getURL(path: string, query: {}): string {
-    const qs = toQueryString(query || {});
+    const qs = new URLSearchParams(query || {});
     return this.baseUrl + path + (qs ? `?${qs}` : "");
   }
 
