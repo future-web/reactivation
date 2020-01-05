@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-interface ActionType {
+interface AsyncRelayType {
   <T>(value: Promise<T>): Promise<T>;
 }
 
@@ -8,7 +8,7 @@ interface ActionType {
  * Provides a loading indicator by observing asynchronous tasks such that the
  * loading state is true if at least one task is still in a pending state
  */
-export function useLoader(): [boolean, ActionType] {
+export function useLoader(): [boolean, AsyncRelayType] {
   const [pendingTasks, setPendingTasks] = useState(0);
 
   const addTask = useCallback(async <T>(task: Promise<T>): Promise<T> => {
