@@ -21,7 +21,7 @@ export default class DashboardPlugin {
     const addressBox = blessed.box({
       width: "100%",
       height: 3,
-      content: chalk.cyan.bold(` http://${displayHost}:${port}`),
+      content: chalk.cyan.bold(` http://${displayHost}:${port}/`),
       border: {
         type: "line"
       }
