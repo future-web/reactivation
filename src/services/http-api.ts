@@ -7,7 +7,7 @@ async function fetch(http, path) {
 }
 
 export class HttpApi implements ApiType {
-  http:  JsonService;
+  http: JsonService;
 
   constructor(baseUrl, fetcher) {
     this.http = new JsonService(baseUrl, fetcher);

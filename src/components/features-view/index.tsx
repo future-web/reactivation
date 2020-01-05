@@ -23,7 +23,12 @@ function getMatchingFeatures(features, query) {
   return matchingFeatures;
 }
 
-export const FeaturesView = ({ features, query, isBusy, onQueryChange }: PropsType) => {
+export const FeaturesView = ({
+  features,
+  query,
+  isBusy,
+  onQueryChange
+}: PropsType) => {
   const matchingFeatures = getMatchingFeatures(features, query);
 
   return (

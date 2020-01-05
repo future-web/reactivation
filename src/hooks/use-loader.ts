@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 interface AsyncRelayType {
   <T>(value: Promise<T>): Promise<T>;
@@ -11,15 +11,18 @@ interface AsyncRelayType {
 export function useLoader(): [boolean, AsyncRelayType] {
   const [pendingTasks, setPendingTasks] = useState(0);
 
-  const addTask = useCallback(async <T>(task: Promise<T>): Promise<T> => {
-    setPendingTasks(count => count + 1);
+  const addTask = useCallback(
+    async <T>(task: Promise<T>): Promise<T> => {
+      setPendingTasks(count => count + 1);
 
-    try {
-      return await task;
-    } finally {
-      setPendingTasks(count => count - 1);
-    }
-  }, [setPendingTasks]);
+      try {
+        return await task;
+      } finally {
+        setPendingTasks(count => count - 1);
+      }
+    },
+    [setPendingTasks]
+  );
 
   const isLoading = pendingTasks > 0;
 

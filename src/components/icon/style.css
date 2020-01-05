@@ -5,30 +5,30 @@
   background-size: contain;
 }
 
-.root[data-type=home] {
+.root[data-type="home"] {
   background-image: url(../../icons/house.svg);
 }
 
-.root[data-type=features] {
+.root[data-type="features"] {
   background-image: url(../../icons/check-list.svg);
 }
 
-.root[data-type=settings] {
+.root[data-type="settings"] {
   background-image: url(../../icons/gear.svg);
 }
 
-.root[data-type=compass] {
+.root[data-type="compass"] {
   background-image: url(../../icons/compass.svg);
 }
 
-.root[data-type=health] {
+.root[data-type="health"] {
   background-image: url(../../icons/heart.svg);
 }
 
-.root[data-type=search] {
+.root[data-type="search"] {
   background-image: url(../../icons/magnifier.svg);
 }
 
-.root[data-type=command] {
+.root[data-type="command"] {
   background-image: url(../../icons/mac-cmd.svg);
 }

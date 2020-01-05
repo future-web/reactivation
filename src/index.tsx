@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Router } from "@reach/router";
 
 import { config } from "services/ambient-config";
-import { HttpApi } from "services/api";
+import { HttpApi } from "services/http-api";
 import { Fetcher } from "utils/fetcher";
 import { ApiContext } from "contexts/api";
 import { FeaturesContainer } from "containers/features";

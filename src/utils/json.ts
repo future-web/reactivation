@@ -1,13 +1,13 @@
 const removeTrailingSlash = str =>
-  str[str.length - 1] === '/' ? str.slice(0, -1) : str;
+  str[str.length - 1] === "/" ? str.slice(0, -1) : str;
 
 const JSON_HEADERS = {
-  'Accept': 'application/json',
-  'Content-Type': 'application/json',
+  Accept: "application/json",
+  "Content-Type": "application/json"
 };
 
-export const BAD_CONTENT = 'BAD_CONTENT';
-export const BAD_RESPONSE = 'BAD_RESPONSE';
+export const BAD_CONTENT = "BAD_CONTENT";
+export const BAD_RESPONSE = "BAD_RESPONSE";
 
 // note that our error object contains an error code indicator
 // which is a standard adopted by node.js to make detection of
@@ -50,10 +50,10 @@ async function getResponse(response: Response) {
     // we also include the response body and status code as these
     // will be important for exception recovery
     throw new HttpResponseError(
-      'Bad response received from server',
+      "Bad response received from server",
       BAD_RESPONSE,
       response.status,
-      body,
+      body
     );
   }
 
@@ -64,7 +64,7 @@ async function getResponse(response: Response) {
       deserializationError.message,
       BAD_CONTENT,
       response.status,
-      text,
+      text
     );
   }
 
@@ -73,9 +73,10 @@ async function getResponse(response: Response) {
 
 // note, we could use URLSearchParams here but not all browsers implement
 // this fully (especially with regards to encoding as a string)
-const toQueryString = (obj: {}) => Object.keys(obj)
-  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
-  .join('&');
+const toQueryString = (obj: {}) =>
+  Object.keys(obj)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
+    .join("&");
 
 export class JsonService {
   baseUrl: string;
@@ -89,12 +90,16 @@ export class JsonService {
 
   getURL(path: string, query: {}): string {
     const qs = toQueryString(query || {});
-    return this.baseUrl + path + (qs ? `?${qs}` : '');
+    return this.baseUrl + path + (qs ? `?${qs}` : "");
   }
 
   async fetch(path: string, query?: {}, init?: RequestInit) {
-    const headers = init == null ? JSON_HEADERS : { ...JSON_HEADERS, ...init.headers };
-    const response = await this.fetcher.fetch(this.getURL(path, query), { ...init, headers });
+    const headers =
+      init == null ? JSON_HEADERS : { ...JSON_HEADERS, ...init.headers };
+    const response = await this.fetcher.fetch(this.getURL(path, query), {
+      ...init,
+      headers
+    });
     const body = await getResponse(response);
 
     return [body, response];
