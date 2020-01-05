@@ -1,17 +1,15 @@
 import React from "react";
 
-import { Icon } from "components/icon";
-
 import "./style.css";
 
 interface PropsType {
-  icon: string;
+  icon: React.node;
   children?: React.Node;
 }
 
-export const LinkItem = ({ icon, children, ...etc }: PropsType) => (
+export const LinkItem = ({ icon: Icon, children, ...etc }: PropsType) => (
   <a styleName="root" {...etc}>
-    <Icon styleName="icon" type={icon} />
+    <Icon styleName="icon" />
     <span>{children}</span>
   </a>
 );
