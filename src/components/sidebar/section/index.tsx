@@ -1,22 +1,20 @@
 import React from "react";
 
-import "./section.css";
+import "./style.css";
 
 interface PropsType {
   title?: string;
   children?: React.Node;
 }
 
-const SidebarSection = ({ title, children }: PropsType) => (
+export const Section = ({ title, children }: PropsType) => (
   <div styleName="root">
     {title && <div styleName="title">{title}</div>}
     <div styleName="content">{children}</div>
   </div>
 );
 
-SidebarSection.defaultProps = {
+Section.defaultProps = {
   title: null,
   children: null
 };
-
-export default SidebarSection;

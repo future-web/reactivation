@@ -1,23 +1,17 @@
 import React from "react";
 
+import { FeatureType } from "@types/api/feature";
+
 import "./style.css";
 
 interface PropsType {
-  icon?: string;
-  title: string;
-  description: string;
+  feature: FeatureType;
 }
 
-const Feature = ({ icon, title, description }: PropsType) => (
+export const Feature = ({ feature: { icon, title, description } }: PropsType) => (
   <div styleName="root">
     {icon && <img styleName="icon" src={icon} alt={`Icon for ${title}`} />}
     <h1 styleName="title">{title}</h1>
     <p styleName="description">{description}</p>
   </div>
 );
-
-Feature.defaultProps = {
-  icon: null
-};
-
-export default Feature;

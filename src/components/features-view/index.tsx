@@ -2,17 +2,13 @@ import React from "react";
 import classnames from "classnames";
 
 import { FeatureType } from "@types/api/feature";
-import SearchInput from "components/search-input";
-import Feature from "components/feature";
+import { SearchInput } from "components/search-input";
+import { FeaturesList } from "components/features-list";
 
 import "./style.css";
 
-interface ListPropsType {
-  features: FeatureType[];
-}
-
-interface ViewPropsType {
-  query?: string;
+interface PropsType {
+  query: string;
   features: FeatureType[];
   isBusy: boolean;
   onQueryChange(query: string);
@@ -27,15 +23,7 @@ function getMatchingFeatures(features, query) {
   return matchingFeatures;
 }
 
-const FeaturesList = ({ features }: ListPropsType) => (
-  <div styleName="features">
-    {features.map(feature => (
-      <Feature key={feature.id} {...feature} />
-    ))}
-  </div>
-);
-
-const FeaturesView = ({ features, query, isBusy, onQueryChange }: ViewPropsType) => {
+export const FeaturesView = ({ features, query, isBusy, onQueryChange }: PropsType) => {
   const matchingFeatures = getMatchingFeatures(features, query);
 
   return (
@@ -47,16 +35,10 @@ const FeaturesView = ({ features, query, isBusy, onQueryChange }: ViewPropsType)
         onChange={e => onQueryChange(e.target.value)}
       />
       {matchingFeatures.length ? (
-        <FeaturesList features={matchingFeatures} />
+        <FeaturesList styleName="features" features={matchingFeatures} />
       ) : (
         <div styleName="notice">No features matched your search terms.</div>
       )}
     </div>
   );
 };
-
-FeaturesView.defaultProps = {
-  query: null
-};
-
-export default FeaturesView;

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 
-import * as Sidebar from "../sidebar";
+import { Host } from "components/sidebar/host";
+import { Section } from "components/sidebar/section";
+import { LinkItem } from "components/sidebar/link-item";
 
 import "./style.css";
 
@@ -9,7 +11,7 @@ interface PropsType {
   children: React.node;
 }
 
-export const App = ({ children }: PropsType) => {
+export const Shell = ({ children }: PropsType) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -33,16 +35,16 @@ export const App = ({ children }: PropsType) => {
           {children}
         </div>
       </div>
-      <Sidebar.Host styleName="sidebar">
-        <Sidebar.Section title="Area one">
-          <Sidebar.LinkItem icon="home">Home</Sidebar.LinkItem>
-          <Sidebar.LinkItem icon="features">Features</Sidebar.LinkItem>
-        </Sidebar.Section>
-        <Sidebar.Section title="Area two">
-          <Sidebar.LinkItem icon="settings">Settings</Sidebar.LinkItem>
-          <Sidebar.LinkItem icon="health">Health</Sidebar.LinkItem>
-        </Sidebar.Section>
-      </Sidebar.Host>
+      <Host styleName="sidebar">
+        <Section title="Area one">
+          <LinkItem icon="home">Home</LinkItem>
+          <LinkItem icon="features">Features</LinkItem>
+        </Section>
+        <Section title="Area two">
+          <LinkItem icon="settings">Settings</LinkItem>
+          <LinkItem icon="health">Health</LinkItem>
+        </Section>
+      </Host>
     </div>
   );
 };

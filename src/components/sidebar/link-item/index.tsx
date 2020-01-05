@@ -1,23 +1,21 @@
 import React from "react";
 
-import Icon from "../icon";
+import { Icon } from "components/icon";
 
-import "./link-item.css";
+import "./style.css";
 
 interface PropsType {
   icon: string;
   children?: React.Node;
 }
 
-const SidebarLinkItem = ({ icon, children, ...etc }: PropsType) => (
+export const LinkItem = ({ icon, children, ...etc }: PropsType) => (
   <a styleName="root" {...etc}>
     <Icon styleName="icon" type={icon} />
     <span>{children}</span>
   </a>
 );
 
-SidebarLinkItem.defaultProps = {
+LinkItem.defaultProps = {
   children: null
 };
-
-export default SidebarLinkItem;

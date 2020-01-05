@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FeatureType } from "@types/api/feature";
 import { ApiContext } from "contexts/api";
 import { useLoader } from "hooks/use-loader";
-import FeaturesView from "components/features-view";
+import { FeaturesView } from "components/features-view";
 
 export const FeaturesContainer = () => {
   const api = useContext(ApiContext);
