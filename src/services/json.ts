@@ -2,7 +2,7 @@ const removeTrailingSlash = str =>
   str[str.length - 1] === "/" ? str.slice(0, -1) : str;
 
 const JSON_HEADERS = {
-  Accept: "application/json",
+  "Accept": "application/json",
   "Content-Type": "application/json"
 };
 
