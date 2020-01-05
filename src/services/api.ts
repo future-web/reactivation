@@ -1,4 +1,4 @@
-import { Api } from "@types/api";
+import { ApiType } from "@types/api";
 import { JsonService } from "utils/json";
 
 async function fetch(http, path) {
@@ -6,7 +6,7 @@ async function fetch(http, path) {
   return data;
 }
 
-export class HttpApi implements Api {
+export class HttpApi implements ApiType {
   http:  JsonService;
 
   constructor(baseUrl, fetcher) {

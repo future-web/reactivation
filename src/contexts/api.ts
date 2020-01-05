@@ -1,4 +1,5 @@
-import { Api } from "@types/api";
 import React from "react";
 
-export const ApiContext = React.createContext<Api>();
+import { ApiType } from "@types/api";
+
+export const ApiContext = React.createContext<ApiType>();
