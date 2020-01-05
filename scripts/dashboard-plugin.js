@@ -1,7 +1,6 @@
-/* eslint import/no-extraneous-dependencies: off  */
 import blessed from "blessed";
 import chalk from "chalk";
-import formatWebpackMessages from "react-dev-utils/formatWebpackMessages";
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
 
 export default class DashboardPlugin {
   constructor(options) {

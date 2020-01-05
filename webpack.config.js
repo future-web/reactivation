@@ -1,5 +1,5 @@
 import path from "path";
-import { EnvironmentPlugin } from "webpack";
+import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
@@ -8,12 +8,13 @@ import Autoprefixer from "autoprefixer";
 import cssvariables from "postcss-css-variables";
 import ImageminPlugin from "imagemin-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 const mode = process.env.NODE_ENV;
 const isProduction = process.env.NODE_ENV === "production";
 const ASSET_NAME_TEMPLATE = "[name]-[hash:6].[ext]";
 const localIdentName = isProduction ? "[hash:6]" : "[path]-[local]_[hash:6]";
-const context = path.resolve(__dirname, "src");
+const context = path.resolve("src");
 const buildDirectory = path.resolve("build");
 const entry = ".";
 const publicPath = "/";
@@ -36,7 +37,7 @@ const styleNameConfig = {
 const rules = [
   {
     // js pipeline
-    test: /\.js$/,
+    test: /\.(js|jsx|ts|tsx)$/,
     exclude: /node_modules/,
     use: [
       {
@@ -59,8 +60,9 @@ const rules = [
     use: cssPipeline({
       loader: "css-loader",
       options: {
-        modules: true,
-        localIdentName
+        modules: {
+          localIdentName
+        }
       }
     })
   },
@@ -73,20 +75,8 @@ const rules = [
     })
   },
   {
-    // svg icon pipeline
-    test: /\.svg$/,
-    use: [
-      {
-        loader: "file-loader"
-      },
-      {
-        loader: "svg-fill-loader"
-      }
-    ]
-  },
-  {
     // any other assets
-    exclude: /\.(js|css|svg|html)$/,
+    exclude: /\.(js|jsx|ts|tsx|mjs|json|css|html)$/,
     use: [
       {
         loader: "file-loader",
@@ -99,28 +89,41 @@ const rules = [
 ];
 
 const plugins = [
+  new webpack.EnvironmentPlugin("NODE_ENV"),
   new CaseSensitivePathsPlugin(),
-  new EnvironmentPlugin(["API_BASE_URI"]),
   new PostCSSAssetsPlugin({
     plugins: [cssvariables, Autoprefixer],
     log: false
   }),
   new HtmlWebpackPlugin({
     template: "index.html",
-    minify: { collapseWhitespace: true, collapseBooleanAttributes: true }
+    minify: { collapseWhitespace: true, collapseBooleanAttributes: true },
+    environment: process.env
   })
 ];
 
 if (isProduction) {
-  plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin(), extractCss);
+  plugins.push(
+    new OptimizeCssAssetsPlugin(),
+    new ImageminPlugin.default(),
+    extractCss
+  );
 }
 
 const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
 
 const optimization = {
   splitChunks: {
-    chunks: "all"
-  }
+    chunks: "async"
+  },
+  minimizer: [
+    new TerserPlugin({
+      terserOptions: {
+        ecma: 8,
+        safari10: true
+      }
+    })
+  ]
 };
 
 export default {
@@ -129,6 +132,12 @@ export default {
   context,
   plugins,
   optimization,
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    // TODO: supports resolving src relative until the following lands in vscode
+    // https://github.com/guybedford/package-name-resolution
+    modules: [context, "node_modules"]
+  },
   module: {
     rules
   },
