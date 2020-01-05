@@ -8,6 +8,7 @@ import Autoprefixer from "autoprefixer";
 import cssvariables from "postcss-css-variables";
 import ImageminPlugin from "imagemin-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 const mode = process.env.NODE_ENV;
 const isProduction = process.env.NODE_ENV === "production";
@@ -60,8 +61,8 @@ const rules = [
       loader: "css-loader",
       options: {
         modules: {
-          localIdentName,
-        },
+          localIdentName
+        }
       }
     })
   },
@@ -97,12 +98,16 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: "index.html",
     minify: { collapseWhitespace: true, collapseBooleanAttributes: true },
-    environment: process.env,
+    environment: process.env
   })
 ];
 
 if (isProduction) {
-  plugins.push(new OptimizeCssAssetsPlugin(), new ImageminPlugin.default(), extractCss);
+  plugins.push(
+    new OptimizeCssAssetsPlugin(),
+    new ImageminPlugin.default(),
+    extractCss
+  );
 }
 
 const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
@@ -110,7 +115,15 @@ const devtool = isProduction ? "hidden-source-map" : "cheap-module-source-map";
 const optimization = {
   splitChunks: {
     chunks: "async"
-  }
+  },
+  minimizer: [
+    new TerserPlugin({
+      terserOptions: {
+        ecma: 8,
+        safari10: true
+      }
+    })
+  ]
 };
 
 export default {
@@ -120,10 +133,10 @@ export default {
   plugins,
   optimization,
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     // TODO: supports resolving src relative until the following lands in vscode
     // https://github.com/guybedford/package-name-resolution
-    modules: [context, 'node_modules'],
+    modules: [context, "node_modules"]
   },
   module: {
     rules
