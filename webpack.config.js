@@ -17,7 +17,6 @@ const localIdentName = isProduction ? "[hash:6]" : "[path]-[local]_[hash:6]";
 const context = path.resolve("src");
 const buildDirectory = path.resolve("build");
 const entry = ".";
-const publicPath = "/";
 
 const extractCss = new ExtractTextPlugin({
   filename: ASSET_NAME_TEMPLATE.replace("[ext]", "css")
@@ -148,7 +147,6 @@ export default {
     chunkFilename: ASSET_NAME_TEMPLATE.replace("[ext]", "js").replace(
       "[hash:6]",
       "[chunkhash:6]"
-    ),
-    publicPath
+    )
   }
 };

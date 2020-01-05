@@ -50,6 +50,7 @@ async function go() {
     historyApiFallback: true,
     quiet: true,
     overlay: false,
+    publicPath: "/",
     before(app, server) {
       app.use(evalSourceMapMiddleware(server));
       app.use(errorOverlayMiddleware());
