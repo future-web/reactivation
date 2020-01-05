@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 
 import { FeatureType } from "@types/api/feature";
 import SearchInput from "components/search-input";
@@ -13,6 +14,7 @@ interface ListPropsType {
 interface ViewPropsType {
   query?: string;
   features: FeatureType[];
+  isBusy: boolean;
   onQueryChange(query: string);
 }
 
@@ -33,11 +35,11 @@ const FeaturesList = ({ features }: ListPropsType) => (
   </div>
 );
 
-const FeaturesView = ({ features, query, onQueryChange }: ViewPropsType) => {
+const FeaturesView = ({ features, query, isBusy, onQueryChange }: ViewPropsType) => {
   const matchingFeatures = getMatchingFeatures(features, query);
 
   return (
-    <div styleName="root">
+    <div styleName={classnames("root", { isBusy })}>
       <SearchInput
         styleName="searchbox"
         placeholder="Search for a feature"
