@@ -14,7 +14,6 @@ process.env.API_BASE_URL = process.env.API_BASE_URL || MOCK_API_PATH;
 async function go() {
   const host = process.env.HOST || "0.0.0.0";
   const port = process.env.PORT || 3000;
-  const displayHost = host === "0.0.0.0" ? "localhost" : host;
 
   const { default: rawConfig } = await import("../webpack.config.js");
 
@@ -23,7 +22,7 @@ async function go() {
   const plugins = [
     ...rawConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),
-    new DashboardPlugin({ host: displayHost, port })
+    new DashboardPlugin({ host, port })
   ];
 
   const config = { ...rawConfig, entry, plugins };

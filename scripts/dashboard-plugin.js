@@ -9,6 +9,7 @@ export default class DashboardPlugin {
 
   apply(compiler) {
     const { host, port } = this.options;
+    const displayHost = host === "0.0.0.0" ? "localhost" : host;
 
     const screen = blessed.screen({
       smartCSR: true,
@@ -20,7 +21,7 @@ export default class DashboardPlugin {
     const addressBox = blessed.box({
       width: "100%",
       height: 3,
-      content: chalk.cyan.bold(` http://${host}:${port}`),
+      content: chalk.cyan.bold(` http://${displayHost}:${port}`),
       border: {
         type: "line"
       }
@@ -54,12 +55,12 @@ export default class DashboardPlugin {
     screen.append(spamBox);
     screen.render();
 
-    compiler.plugin("invalid", () => {
+    compiler.hooks.invalid.tap('dashboard', () => {
       spamBox.setContent(chalk.gray("Compiling..."));
       screen.render();
     });
 
-    compiler.plugin("done", stats => {
+    compiler.hooks.done.tap('dashboard', stats => {
       const { errors } = formatWebpackMessages(stats.toJson({}, true));
 
       if (errors.length) {
