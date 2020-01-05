@@ -2,9 +2,9 @@
   "features": [
     {
       "id": "89940f67-ab83-41a3-959e-81ce78ea6d9c",
-      "icon": "<baseUrl>/babel.png",
+      "icon": "<baseUrl>/js.png",
       "title": "Modern JavaScript",
-      "description": "Yea yea, write todays JavaScript and we'll back compile to your target browsers with the magic of webpack and babel."
+      "description": "Modern JavaScript for Modern browsers 😎."
     },
     {
       "id": "445b5705-333c-447f-9124-1df93a787858",
