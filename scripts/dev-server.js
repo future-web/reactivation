@@ -3,7 +3,7 @@ import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
 import jsonServer from "json-server";
 import errorOverlayMiddleware from "react-dev-utils/errorOverlayMiddleware.js";
-import evalSourceMapMiddleware from 'react-dev-utils/evalSourceMapMiddleware.js';
+import evalSourceMapMiddleware from "react-dev-utils/evalSourceMapMiddleware.js";
 import DashboardPlugin from "./dashboard-plugin.js";
 
 const MOCK_API_PATH = "/__mockapi";
@@ -45,7 +45,7 @@ async function go() {
   const serverConfig = {
     host,
     hot: true,
-    transportMode: 'ws',
+    transportMode: "ws",
     injectClient: false,
     historyApiFallback: true,
     quiet: true,

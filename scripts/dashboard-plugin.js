@@ -55,12 +55,12 @@ export default class DashboardPlugin {
     screen.append(spamBox);
     screen.render();
 
-    compiler.hooks.invalid.tap('dashboard', () => {
+    compiler.hooks.invalid.tap("dashboard", () => {
       spamBox.setContent(chalk.gray("Compiling..."));
       screen.render();
     });
 
-    compiler.hooks.done.tap('dashboard', stats => {
+    compiler.hooks.done.tap("dashboard", stats => {
       const { errors } = formatWebpackMessages(stats.toJson({}, true));
 
       if (errors.length) {
